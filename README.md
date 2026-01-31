@@ -20,7 +20,7 @@ This project leverages a lightweight on-device machine learning model for emerge
 10. [What We Learned](#what-we-learned)
 11. [Future Work](#future-work)
 12. [Contribution](#contribution)
-13. [Demo](#demo)
+13. [App Demo](#demo)
 14. [Screenshots](#screenshots)
 15. [How to Run](#how-to-run)
 16. [License](#license)
@@ -178,15 +178,15 @@ Led end-to-end development: ideation, system architecture, ML integration, front
 
 ---
 
-## Demo
+## App Demo
 
-See `demo/demo.mp4` for the full 2–3 minute demo showing offline functionality.
+[Lifeline-AI App](https://lifelineaiforall.lovable.app)
 
 ---
 
 ## Screenshots
 
-See `screenshots/` folder: home screen, emergency detection, guidance steps.
+
 
 ---
 
