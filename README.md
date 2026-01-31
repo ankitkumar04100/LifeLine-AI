@@ -1,6 +1,8 @@
 # LifeLine AI 🚑
 ## Offline Emergency Response Assistant
 
+<img width="1536" height="1024" alt="Designer (7)" src="https://github.com/user-attachments/assets/8ed4f066-3a7c-412d-9be4-21e212a789a5" />
+
 **LifeLine AI** is a cutting-edge, offline-first emergency response assistant designed to guide users during critical life-threatening situations when internet connectivity is unavailable. Its mission is to empower individuals to take immediate, effective action in emergencies, reduce response time, and ultimately save lives.
 
 This project leverages a lightweight on-device machine learning model for emergency classification, a panic-friendly user interface for high-stress scenarios, and optional online features that work when connectivity is present, creating a comprehensive solution that blends reliability, speed, and real-world impact.
@@ -20,7 +22,7 @@ This project leverages a lightweight on-device machine learning model for emerge
 10. [What We Learned](#what-we-learned)
 11. [Future Work](#future-work)
 12. [Contribution](#contribution)
-13. [App Demo](#demo)
+13. [App Demo](#app-demo)
 14. [Screenshots](#screenshots)
 15. [How to Run](#how-to-run)
 16. [License](#license)
