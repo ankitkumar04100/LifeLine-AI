@@ -186,6 +186,8 @@ Led end-to-end development: ideation, system architecture, ML integration, front
 
 ## Screenshots
 
+![IMG_20260131_130332 jpg](https://github.com/user-attachments/assets/c760bfa2-689e-4cb1-8888-6c0bbe9304fd)
+
 
 
 ---
