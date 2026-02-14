@@ -1,0 +1,16 @@
+# LifeLine AI Backend Environment Variables
+
+# Optional: Email/SMS notifications
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_USER=your_email@example.com
+EMAIL_PASSWORD=your_email_password
+
+# Optional: External API keys
+TWILIO_ACCOUNT_SID=your_twilio_sid
+TWILIO_AUTH_TOKEN=your_twilio_auth_token
+
+# FastAPI server config
+APP_HOST=0.0.0.0
+APP_PORT=8000
+DEBUG=True
