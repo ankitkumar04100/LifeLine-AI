@@ -1,0 +1,22 @@
+/* Panic-friendly button */
+.button {
+  padding: 15px 25px;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #ff4d4f; /* Emergency red */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff7875;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
