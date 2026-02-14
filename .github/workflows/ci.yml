@@ -31,7 +31,7 @@ jobs:
           cd backend
           pip install -r requirements.txt
 
-      # 5️⃣ Run backend tests
+      # 5️⃣ Run backend tests (optional)
       - run: |
           cd backend
           pytest || echo "No backend tests implemented yet"
@@ -41,17 +41,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # 7️⃣ Install frontend dependencies
+      # 7️⃣ Install frontend dependencies (works without package-lock.json)
       - run: |
           cd frontend
-          npm ci
+          npm install
 
-      # 8️⃣ Run frontend tests
+      # 8️⃣ Run frontend build
       - run: |
           cd frontend
-          npm run test || echo "No frontend tests implemented yet"
+          npm run build
 
-      # 9️⃣ Lint backend
+      # 9️⃣ Lint backend (optional)
       - run: |
           cd backend
           flake8 . || echo "No backend linting implemented yet"
