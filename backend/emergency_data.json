@@ -1,6 +1,0 @@
-{
-  "accident": ["Check surroundings for safety", "Call emergency services", "Administer first aid"],
-  "heart_attack": ["Call emergency services immediately", "Begin CPR", "Monitor vital signs until help arrives"],
-  "bleeding": ["Apply pressure to wound", "Elevate injured limb", "Seek medical help"],
-  "burn": ["Cool the burn with running water", "Cover with sterile cloth", "Seek medical attention"]
-}
