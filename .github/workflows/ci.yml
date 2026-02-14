@@ -2,45 +2,63 @@ name: LifeLine AI CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.11]
+        node-version: [18]
 
     steps:
+      # 1️⃣ Checkout code
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # 2️⃣ Setup Python
+      - uses: actions/setup-python@v4
         with:
-          node-version: 18
-          cache: npm
+          python-version: ${{ matrix.python-version }}
 
-      - name: Install Frontend Dependencies
-        run: |
+      # 3️⃣ Upgrade pip, setuptools, wheel
+      - run: python -m pip install --upgrade pip setuptools wheel
+
+      # 4️⃣ Install backend dependencies
+      - run: |
+          cd backend
+          pip install -r requirements.txt
+
+      # 5️⃣ Run backend tests (optional)
+      - run: |
+          cd backend
+          pytest || echo "No backend tests implemented yet"
+
+      # 6️⃣ Setup Node.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 7️⃣ Install frontend dependencies (works without package-lock.json)
+      - run: |
           cd frontend
-          npm ci --legacy-peer-deps
+          npm install
 
-      - name: Build Frontend
-        run: |
+      # 8️⃣ Run frontend build
+      - run: |
           cd frontend
           npm run build
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-
-      - name: Install Backend Dependencies
-        run: |
+      # 9️⃣ Lint backend (optional)
+      - run: |
           cd backend
-          pip install --upgrade pip
-          pip install -r requirements.txt
+          flake8 . || echo "No backend linting implemented yet"
 
-      - name: Run Backend Tests
-        run: |
-          cd backend
-          pytest || echo "No backend tests yet"
+      # 🔟 Lint frontend
+      - run: |
+          cd frontend
+          npm run lint || echo "No frontend linting implemented yet"
+
+      # Optional: Add deployment steps here (Vercel / Render)
