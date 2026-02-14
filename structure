@@ -1,74 +1,73 @@
-LifeLine-AI/
+LifeLineAI/
 │
-├── README.md                        # Detailed README 
-├── LICENSE                          # MIT 
-├── .gitignore                       # Node, Python, general ignores
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── SECURITY.md
-│
-├── frontend/                         # Mobile/web interface (React + React Native)
+├── frontend/                          # React + TypeScript frontend
+│   ├── src/
+│   │   ├── App.tsx                    # Main React component
+│   │   ├── index.tsx                  # Entry point
+│   │   ├── components/                # Reusable UI components
+│   │   │   ├── Button.tsx
+│   │   │   ├── GuidanceCard.tsx
+│   │   │   └── Header.tsx
+│   │   ├── screens/                   # App screens/pages
+│   │   │   ├── Home.tsx
+│   │   │   ├── Emergency.tsx
+│   │   │   ├── SOS.tsx
+│   │   │   └── Settings.tsx
+│   │   ├── styles/                     # CSS / SCSS
+│   │   │   ├── App.css
+│   │   │   ├── Button.css
+│   │   │   └── Emergency.css
+│   │   └── utils/                      # Helper functions
+│   │       ├── api.ts
+│   │       ├── mlHelper.ts
+│   │       └── constants.ts
 │   ├── package.json
-│   ├── README.md
-│   └── src/
-│       ├── App.js
-│       ├── index.js
-│       ├── components/
-│       │   ├── HomeScreen.js
-│       │   ├── EmergencyScreen.js
-│       │   ├── GuidanceStep.js
-│       │   ├── SOSAlert.js
-│       │   ├── HistoryLog.js
-│       │   └── Settings.js
-│       └── styles/
-│           └── App.css
+│   └── README.md
 │
-├── backend/                         
+├── backend/                           # FastAPI backend (optional)
 │   ├── main.py
+│   ├── api/
+│   │   ├── sos.py
+│   │   ├── emergencies.py
+│   │   └── health.py
+│   ├── models/
+│   │   ├── sosModel.py
+│   │   └── emergencyModel.py
+│   ├── services/
+│   │   ├── sosService.py
+│   │   └── emergencyService.py
+│   ├── utils/
+│   │   ├── logger.py
+│   │   └── emailNotifier.py
 │   ├── requirements.txt
-│   ├── emergency_data.json
-│   ├── api_routes.py
-│   └── utils.py
+│   ├── README.md
+│   └── .env.example
 │
-├── model/                             # AI model folder
-│   ├── emergency_classifier.py
-│   ├── preprocess_data.py
-│   ├── train_model.py
-│   ├── evaluation_metrics.md
-│   └── model_info.md
+├── ml_model/                           # Offline ML models
+│   ├── dataset/                        # Emergency datasets
+│   ├── training/                       # Training scripts
+│   ├── inference/                      # TensorFlow Lite models
+│   └── README.md
 │
-├── demo/                              # Demo media for hackathon submission
-│   ├── demo.mp4                      
-│   └── captions.txt                    # script/subtitles
+├── database/                           # Offline storage
+│   ├── lifeLine.db                     # SQLite database
+│   └── schema.sql                       # Schema / initialization
 │
-├── screenshots/                        # Screenshots for README
-│   ├── home.png
-│   ├── emergency_detected.png
-│   ├── guidance_steps.png
-│   └── sos_alert.png
+├── demo_media/                         # Screenshots, videos, diagrams
+│   ├── screenshots/
+│   ├── videos/
+│   └── diagrams/
 │
-├── docs/                               # Documentation
-│   ├── architecture.md
-│   ├── flowchart.md
-│   ├── user_guide.md
-│   ├── future_scope.md
-│   └── contribution.md
-│
-├── tests/                              # Unit & integration tests
-│   ├── backend_tests.py
-│   ├── frontend_tests.js
-│   └── ml_model_tests.py
-│
-│
-├── .github/                            # GitHub governance & workflow
-│   ├── ISSUE_TEMPLATE/
-│   │   └── bug_report.md
-│   ├── PULL_REQUEST_TEMPLATE/
-│   │   └── pull_request.md
-│   ├── workflows/
-│   │   └── ci.yml                       # GitHub Actions workflow
+├── docs/                               # Documentation and workflow
+│   ├── CONTRIBUTING.md
+│   ├── CODE_OF_CONDUCT.md
+│   ├── SECURITY.md
 │   └── WORKFLOW.md
 │
-└── config/                             # Optional configuration files
-    ├── app_config.json
-    └── model_config.json
+├── .github/                            # GitHub configuration & CI/CD
+│   └── workflows/
+│       └── ci.yml                      # Frontend + backend build & test
+│
+├── .gitignore
+├── README.md                           # Main hackathon-ready README
+└── LICENSE                             # MIT License
