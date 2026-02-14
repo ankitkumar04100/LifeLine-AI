@@ -15,7 +15,7 @@ jobs:
         node-version: [18]
 
     steps:
-      # 1️⃣ Checkout code
+      # 1️⃣ Checkout repository
       - uses: actions/checkout@v3
 
       # 2️⃣ Setup Python
@@ -27,12 +27,14 @@ jobs:
       - run: python -m pip install --upgrade pip setuptools wheel
 
       # 4️⃣ Install backend dependencies
-      - run: |
+      - name: Install backend dependencies
+        run: |
           cd backend
           pip install -r requirements.txt
 
-      # 5️⃣ Run backend tests (optional)
-      - run: |
+      # 5️⃣ Optional: Run backend tests
+      - name: Run backend tests
+        run: |
           cd backend
           pytest || echo "No backend tests implemented yet"
 
@@ -40,24 +42,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "npm"
 
-      # 7️⃣ Install frontend dependencies (works without package-lock.json)
-      - run: |
+      # 7️⃣ Install frontend dependencies using package-lock.json
+      - name: Install frontend dependencies
+        run: |
           cd frontend
-          npm install
+          npm ci
 
       # 8️⃣ Run frontend build
-      - run: |
+      - name: Build frontend
+        run: |
           cd frontend
           npm run build
 
-      # 9️⃣ Lint backend (optional)
-      - run: |
+      # 9️⃣ Optional: Lint backend
+      - name: Lint backend
+        run: |
           cd backend
           flake8 . || echo "No backend linting implemented yet"
 
-      # 🔟 Lint frontend
-      - run: |
+      # 🔟 Optional: Lint frontend
+      - name: Lint frontend
+        run: |
           cd frontend
           npm run lint || echo "No frontend linting implemented yet"
 
