@@ -1,0 +1,25 @@
+/* Emergency screen / guidance card styling */
+.guidance-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.guidance-card h2 {
+  margin-bottom: 10px;
+  color: #ff4d4f;
+}
+
+.guidance-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.guidance-card button {
+  margin-top: 15px;
+}
