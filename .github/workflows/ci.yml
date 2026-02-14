@@ -2,66 +2,45 @@ name: LifeLine AI CI/CD
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout code
       - uses: actions/checkout@v3
 
-      # 2️⃣ Setup Python
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-
-      # 3️⃣ Upgrade pip
-      - run: python -m pip install --upgrade pip setuptools wheel
-
-      # 4️⃣ Install backend dependencies
-      - name: Install backend packages
-        run: |
-          cd backend
-          pip install -r requirements.txt
-
-      # 5️⃣ Optional: Run backend tests
-      - name: Run backend tests
-        run: |
-          cd backend
-          pytest || echo "No backend tests implemented yet"
-
-      # 6️⃣ Setup Node.js
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: "npm"
+          cache: npm
 
-      # 7️⃣ Install frontend dependencies (using package-lock.json)
-      - name: Install frontend dependencies
+      - name: Install Frontend Dependencies
         run: |
           cd frontend
           npm ci --legacy-peer-deps
 
-      # 8️⃣ Build frontend
-      - name: Build frontend
+      - name: Build Frontend
         run: |
           cd frontend
           npm run build
 
-      # 9️⃣ Optional: Lint backend
-      - name: Lint backend
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install Backend Dependencies
         run: |
           cd backend
-          flake8 . || echo "No backend linting yet"
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
-      # 🔟 Optional: Lint frontend
-      - name: Lint frontend
+      - name: Run Backend Tests
         run: |
-          cd frontend
-          npm run lint || echo "No frontend linting yet"
-
-      # 11️⃣ Optional: Deploy (add your deployment steps here)
+          cd backend
+          pytest || echo "No backend tests yet"
