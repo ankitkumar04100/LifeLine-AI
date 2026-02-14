@@ -1,0 +1,40 @@
+# Node / Frontend
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*.env
+*.sqlite3
+*.db
+*.log
+*.egg-info/
+*.pytest_cache/
+venv/
+.env
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# ML models and temporary files
+ml_model/inference/*.pkl
+ml_model/inference/*.tflite
+ml_model/training/*.joblib
+ml_model/training/*.pkl
+
+# Database backups
+database/lifeLine.db
+
+# Misc
+*.swp
