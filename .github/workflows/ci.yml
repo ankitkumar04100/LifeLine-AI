@@ -7,27 +7,23 @@ on:
     branches: [ main, dev ]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.11]
-        node-version: [18]
 
     steps:
-      # 1️⃣ Checkout repository
+      # 1️⃣ Checkout code
       - uses: actions/checkout@v3
 
       # 2️⃣ Setup Python
       - uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
 
-      # 3️⃣ Upgrade pip, setuptools, wheel
+      # 3️⃣ Upgrade pip
       - run: python -m pip install --upgrade pip setuptools wheel
 
       # 4️⃣ Install backend dependencies
-      - name: Install backend dependencies
+      - name: Install backend packages
         run: |
           cd backend
           pip install -r requirements.txt
@@ -41,16 +37,16 @@ jobs:
       # 6️⃣ Setup Node.js
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
           cache: "npm"
 
-      # 7️⃣ Install frontend dependencies using package-lock.json
+      # 7️⃣ Install frontend dependencies (using package-lock.json)
       - name: Install frontend dependencies
         run: |
           cd frontend
-          npm ci
+          npm ci --legacy-peer-deps
 
-      # 8️⃣ Run frontend build
+      # 8️⃣ Build frontend
       - name: Build frontend
         run: |
           cd frontend
@@ -60,12 +56,12 @@ jobs:
       - name: Lint backend
         run: |
           cd backend
-          flake8 . || echo "No backend linting implemented yet"
+          flake8 . || echo "No backend linting yet"
 
       # 🔟 Optional: Lint frontend
       - name: Lint frontend
         run: |
           cd frontend
-          npm run lint || echo "No frontend linting implemented yet"
+          npm run lint || echo "No frontend linting yet"
 
-      # Optional: Add deployment steps here (Vercel / Render)
+      # 11️⃣ Optional: Deploy (add your deployment steps here)
