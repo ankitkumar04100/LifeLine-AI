@@ -15,61 +15,50 @@ jobs:
         node-version: [18]
 
     steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout code
-        uses: actions/checkout@v3
+      # 1️⃣ Checkout code
+      - uses: actions/checkout@v3
 
       # 2️⃣ Setup Python
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
       # 3️⃣ Upgrade pip, setuptools, wheel
-      - name: Upgrade pip
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
+      - run: python -m pip install --upgrade pip setuptools wheel
 
-      # 4️⃣ Install Python dependencies
-      - name: Install backend dependencies
-        run: |
+      # 4️⃣ Install backend dependencies
+      - run: |
           cd backend
           pip install -r requirements.txt
 
       # 5️⃣ Run backend tests
-      - name: Run backend tests
-        run: |
+      - run: |
           cd backend
           pytest || echo "No backend tests implemented yet"
 
       # 6️⃣ Setup Node.js
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
       # 7️⃣ Install frontend dependencies
-      - name: Install frontend dependencies
-        run: |
+      - run: |
           cd frontend
-          npm install
+          npm ci
 
       # 8️⃣ Run frontend tests
-      - name: Run frontend tests
-        run: |
+      - run: |
           cd frontend
-          npm run test -- --watchAll=false || echo "No frontend tests implemented yet"
+          npm run test || echo "No frontend tests implemented yet"
 
       # 9️⃣ Lint backend
-      - name: Lint backend
-        run: |
+      - run: |
           cd backend
           flake8 . || echo "No backend linting implemented yet"
 
       # 🔟 Lint frontend
-      - name: Lint frontend
-        run: |
+      - run: |
           cd frontend
-          npx eslint "src/**/*.{ts,tsx}" || echo "No frontend linting implemented yet"
+          npm run lint || echo "No frontend linting implemented yet"
 
       # Optional: Add deployment steps here (Vercel / Render)
