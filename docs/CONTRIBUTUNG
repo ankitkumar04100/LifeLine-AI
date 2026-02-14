@@ -1,0 +1,18 @@
+# Contributing to LifeLine AI
+
+Thank you for considering contributing! To ensure consistency and quality:
+
+## How to Contribute
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature`.
+3. Make changes with proper documentation and tests.
+4. Submit a pull request with a clear description.
+
+## Code Style
+- Follow Python PEP8 for backend.
+- Follow React/TypeScript conventions for frontend.
+- Keep functions modular and readable.
+
+## Reporting Issues
+- Open issues for bugs or feature requests.
+- Include steps to reproduce and screenshots if applicable.
