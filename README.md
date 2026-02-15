@@ -23,7 +23,7 @@ This project leverages a lightweight on-device machine learning model for emerge
 10. [What We Learned](#what-we-learned)  
 11. [Future Work](#future-work)  
 12. [Contribution](#contribution)  
-13. [App Demo](#app-demo)  
+13. [Demo App, Video & Screenshots](#demo-app--video--screenshots)  
 14. [Screenshots](#screenshots)  
 15. [How to Run](#how-to-run)  
 16. [Testing](#testing)  
@@ -359,13 +359,19 @@ Planned contributions for LifeLine AI include:
 
 ---
 
-## App Demo
+## Demo App, Video & Screenshots
+
+### App Demo
 
 [Lifeline-AI App](https://lifelineaiforall.lovable.app)
 
+### Demo Video
+
+[Lifeline-AI Demo Video](https://youtu.be/hc_RK6IO2nM)
+
 ---
 
-## Screenshots
+### Screenshots
 
 ![IMG_20260131_130252 jpg](https://github.com/user-attachments/assets/ce8d36ee-4a92-4346-93ac-4cc13cf54793)
 
