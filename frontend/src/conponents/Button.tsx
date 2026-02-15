@@ -1,21 +1,27 @@
 import React from "react";
 
 interface ButtonProps {
-  text: string;
-  onClick: () => void;
-  disabled?: boolean;
+  label: string;
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, disabled }) => {
+function Button({ label, onClick }: ButtonProps) {
   return (
     <button
-      className="button"
       onClick={onClick}
-      disabled={disabled}
+      style={{
+        padding: "10px 20px",
+        margin: "10px",
+        background: "#2563eb",
+        color: "white",
+        border: "none",
+        borderRadius: "6px",
+        cursor: "pointer"
+      }}
     >
-      {text}
+      {label}
     </button>
   );
-};
+}
 
 export default Button;
