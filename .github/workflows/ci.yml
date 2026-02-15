@@ -1,11 +1,13 @@
-name: Frontend CI
+name: LifeLine AI CI
 
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+  build-frontend:
     runs-on: ubuntu-latest
 
     defaults:
@@ -13,12 +15,22 @@ jobs:
         working-directory: frontend
 
     steps:
-      - uses: actions/checkout@v3
+      # 1️⃣ Checkout Repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v4
+      # 2️⃣ Setup Node.js (Stable for react-scripts 5)
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - run: npm install --legacy-peer-deps
+      # 3️⃣ Clean Install Dependencies
+      - name: Install Dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --legacy-peer-deps
 
-      - run: npm run build
+      # 4️⃣ Build React App
+      - name: Build Frontend
+        run: npm run build
