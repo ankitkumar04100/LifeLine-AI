@@ -1,4 +1,4 @@
-name: LifeLine AI CI
+name: LifeLineAI CI Pipeline
 
 on:
   push:
@@ -7,7 +7,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build-frontend:
+
+  # =========================
+  # FRONTEND BUILD
+  # =========================
+  frontend:
+    name: Build Frontend (React + TS)
     runs-on: ubuntu-latest
 
     defaults:
@@ -15,22 +20,44 @@ jobs:
         working-directory: frontend
 
     steps:
-      # 1️⃣ Checkout Repository
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js (Stable for react-scripts 5)
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 3️⃣ Clean Install Dependencies
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build React App
+        run: npm run build
+
+  # =========================
+  # BACKEND CHECK
+  # =========================
+  backend:
+    name: Check Backend (FastAPI)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
       - name: Install Dependencies
         run: |
-          rm -rf node_modules package-lock.json
-          npm install --legacy-peer-deps
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
-      # 4️⃣ Build React App
-      - name: Build Frontend
-        run: npm run build
+      - name: Run Basic Syntax Check
+        run: python -m py_compile main.py
