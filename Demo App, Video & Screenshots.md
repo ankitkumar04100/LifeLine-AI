@@ -5,7 +5,7 @@
 
 # Demo Video
 
-{Lifeline-AI Demo Video](https://youtu.be/hc_RK6IO2nM)
+[Lifeline-AI Demo Video](https://youtu.be/hc_RK6IO2nM)
 
 ---
 
