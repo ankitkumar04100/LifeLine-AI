@@ -1,15 +1,11 @@
 import React from "react";
 
-interface HeaderProps {
-  title: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ title }) => {
+function Header() {
   return (
-    <header className="app-header">
-      <h1>{title}</h1>
+    <header style={{ padding: "20px", background: "#0f172a", color: "white" }}>
+      <h1>LifeLine AI 🚑</h1>
     </header>
   );
-};
+}
 
 export default Header;
