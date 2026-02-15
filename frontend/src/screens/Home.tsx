@@ -1,25 +1,21 @@
 import React from "react";
+import Button from "../components/Button";
+import GuidanceCard from "../components/GuidanceCard";
 
-interface HomeProps {
-  navigateTo: (screen: string) => void;
-}
-
-const Home: React.FC<HomeProps> = ({ navigateTo }) => {
+function Home() {
   return (
-    <div className="home-screen">
-      <h1>Welcome to LifeLine AI</h1>
-      <p>Your offline emergency assistant.</p>
-      <button className="button" onClick={() => navigateTo("Emergency")}>
-        Start Emergency Guidance
-      </button>
-      <button className="button" onClick={() => navigateTo("SOS")}>
-        Send SOS
-      </button>
-      <button className="button" onClick={() => navigateTo("Settings")}>
-        Settings
-      </button>
+    <div style={{ padding: "20px" }}>
+      <h2>Emergency Assistance</h2>
+
+      <Button label="SOS Alert" />
+      <Button label="Find Nearby Hospital" />
+
+      <GuidanceCard
+        title="CPR Guidance"
+        description="Follow step-by-step CPR instructions."
+      />
     </div>
   );
-};
+}
 
 export default Home;
