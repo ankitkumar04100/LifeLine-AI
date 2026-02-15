@@ -1,5 +1,13 @@
-#App Demo
+# App Demo
 [Lifeline-AI App](https://lifelineaiforall.lovable.app)
+
+---
+
+# Demo Video
+
+{Lifeline-AI Demo Video](https://youtu.be/hc_RK6IO2nM)
+
+---
 
 ## Screenshots
 
