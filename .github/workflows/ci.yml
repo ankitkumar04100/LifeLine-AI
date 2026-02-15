@@ -23,10 +23,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 16
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Clean Install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Build React App
         run: npm run build
