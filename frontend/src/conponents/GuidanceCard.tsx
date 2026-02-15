@@ -1,17 +1,24 @@
 import React from "react";
 
-interface GuidanceCardProps {
-  stepNumber: number;
-  instruction: string;
+interface Props {
+  title: string;
+  description: string;
 }
 
-const GuidanceCard: React.FC<GuidanceCardProps> = ({ stepNumber, instruction }) => {
+function GuidanceCard({ title, description }: Props) {
   return (
-    <div className="guidance-card">
-      <h3>Step {stepNumber}:</h3>
-      <p>{instruction}</p>
+    <div
+      style={{
+        border: "1px solid #ddd",
+        padding: "15px",
+        margin: "10px",
+        borderRadius: "8px"
+      }}
+    >
+      <h3>{title}</h3>
+      <p>{description}</p>
     </div>
   );
-};
+}
 
 export default GuidanceCard;
