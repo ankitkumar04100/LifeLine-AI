@@ -23,7 +23,7 @@ This project leverages a lightweight on-device machine learning model for emerge
 10. [What We Learned](#what-we-learned)  
 11. [Future Work](#future-work)  
 12. [Contribution](#contribution)  
-13. [Demo App, Video & Screenshots](#demo-app--video--screenshots)  
+13. [Demo App, Video & Screenshots](#demo-app-video--screenshots)
 14. [Screenshots](#screenshots)  
 15. [How to Run](#how-to-run)  
 16. [Testing](#testing)  
